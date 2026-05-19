@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>沐慕肌膚管理 Meta 廣告預覽</title>
+  <style>
+    :root {
+      --bg: #f7f1eb;
+      --surface: #ffffff;
+      --soft: #efe2d7;
+      --line: #e6d8cd;
+      --text: #3d3029;
+      --muted: #766258;
+      --brand: #5c3a2a;
+      --blue: #1877f2;
+      --shadow: 0 22px 70px rgba(61, 48, 41, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Microsoft JhengHei", "Noto Sans TC", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(135deg, rgba(239, 226, 215, .72), rgba(247, 241, 235, .88)),
+        var(--bg);
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 32px 18px 44px;
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(320px, 440px) 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .phone {
+      width: min(440px, 100%);
+      margin: 0 auto;
+      padding: 14px;
+      border-radius: 34px;
+      background: #1b1715;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 24px;
+    }
+
+    .screen {
+      overflow: hidden;
+      border-radius: 24px;
+      background: #f0f2f5;
+    }
+
+    .topbar {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 14px;
+      background: #fff;
+      border-bottom: 1px solid #dfe3e8;
+    }
+
+    .fb {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .search {
+      height: 32px;
+      flex: 1;
+      border-radius: 999px;
+      background: #f0f2f5;
+      color: #6b7178;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+    }
+
+    .ad {
+      margin: 12px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    .ad-head {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--soft);
+      color: var(--brand);
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .name {
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .meta {
+      margin-top: 2px;
+      color: #606770;
+      font-size: 12px;
+    }
+
+    .post-copy {
+      padding: 0 12px 12px;
+      font-size: 14px;
+      line-height: 1.55;
+      white-space: pre-line;
+    }
+
+    .carousel {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 82%;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 0 12px 12px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .carousel::-webkit-scrollbar-thumb {
+      background: #c9cdd2;
+      border-radius: 999px;
+    }
+
+    .card {
+      min-width: 0;
+      border: 1px solid #d8dde3;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      scroll-snap-align: start;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--soft);
+    }
+
+    .card-text {
+      padding: 10px 11px 12px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .card-sub {
+      color: #606770;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .button {
+      margin-top: 2px;
+      min-height: 34px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      background: #e4e6eb;
+      color: #1c1e21;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .engagement {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #e4e6eb;
+      color: #606770;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 0;
+    }
+
+    .panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .72);
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--brand);
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .74);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--brand);
+      font-size: 22px;
+    }
+
+    .copybox {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .mini img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .mini div {
+      padding: 10px;
+      font-weight: 800;
+      color: var(--brand);
+      line-height: 1.35;
+    }
+
+    .notes {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 920px) {
+      .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        position: static;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding: 18px 10px 30px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel {
+        grid-auto-columns: 88%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="wrap">
+      <section class="phone" aria-label="Meta 手機廣告預覽">
+        <div class="screen">
+          <div class="topbar">
+            <div class="fb">f</div>
+            <div class="search">搜尋 Facebook</div>
+          </div>
+
+          <article class="ad">
+            <header class="ad-head">
+              <div class="avatar">沐</div>
+              <div>
+                <div class="name">MuMu 沐慕肌膚管理</div>
+                <div class="meta">贊助 · 高雄左營</div>
+              </div>
+            </header>
+
+            <div class="post-copy">粉刺、出油、毛孔粗糙，是很多人保養時會遇到的肌膚清潔需求。
+
+MuMu 沐慕肌膚管理提供臉部清潔保養服務，依照膚況安排清潔、舒緩與保養流程，讓肌膚維持乾淨清爽的日常狀態。
+
+想了解清粉刺或臉部保養課程，歡迎私訊預約。</div>
+
+            <div class="carousel" aria-label="輪播圖片">
+              <div class="card">
+                <img src="01_acne_comedone_care.jpg" alt="痘痘粉刺照護需求廣告圖">
+                <div class="card-text">
+                  <div class="card-title">痘痘粉刺照護需求？</div>
+                  <div class="card-sub">從溫和清潔保養開始</div>
+                  <div class="button">私訊預約</div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="02_pore_cleansing.jpg" alt="清潔粉刺整理毛孔廣告圖">
+                <div class="card-text">
+                  <div class="card-title">清潔粉刺・整理毛孔</div>
+                  <div class="card-sub">依照膚況安排保養流程</div>
+                  <div class="button">私訊預約</div>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="03_kaohsiung_booking.jpg" alt="高雄臉部保養預約廣告圖">
+                <div class="card-text">
+                  <div class="card-title">高雄臉部保養預約中</div>
+                  <div class="card-sub">私訊了解適合課程</div>
+                  <div class="button">私訊預約</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="engagement">
+              <span>讚</span>
+              <span>留言</span>
+              <span>分享</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="hero">
+          <h1>沐慕肌膚管理<br>Meta 輪播圖片廣告預覽</h1>
+          <p class="lead">主打痘痘粉刺與毛孔清潔需求，圖片都採局部裁切，不露出完整五官；文案以「清潔保養、依照膚況、私訊預約」為主，避開容易被 Meta 判定誇大或涉及醫療療效的字眼。</p>
+        </div>
+
+        <div class="section">
+          <h2>貼文主文</h2>
+          <p class="copybox">粉刺、出油、毛孔粗糙，是很多人保養時會遇到的肌膚清潔需求。
+
+MuMu 沐慕肌膚管理提供臉部清潔保養服務，依照膚況安排清潔、舒緩與保養流程，讓肌膚維持乾淨清爽的日常狀態。
+
+想了解清粉刺或臉部保養課程，歡迎私訊預約。
+高雄市左營區立明街 148 號</p>
+        </div>
+
+        <div class="section">
+          <h2>輪播三張</h2>
+          <div class="grid">
+            <div class="mini">
+              <img src="01_acne_comedone_care.jpg" alt="第一張輪播圖">
+              <div>1. 痘痘粉刺照護需求？</div>
+            </div>
+            <div class="mini">
+              <img src="02_pore_cleansing.jpg" alt="第二張輪播圖">
+              <div>2. 清潔粉刺・整理毛孔</div>
+            </div>
+            <div class="mini">
+              <img src="03_kaohsiung_booking.jpg" alt="第三張輪播圖">
+              <div>3. 高雄臉部保養預約中</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>投放注意</h2>
+          <ul class="notes">
+            <li>不使用完整正臉照，不露眼、鼻、嘴等可辨識五官。</li>
+            <li>不做 Before / After，不使用立即見效、治療、根治、改善痘痘等高風險字眼。</li>
+            <li>圖片版文字短句保留，主要轉換動作放在「私訊預約」。</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
