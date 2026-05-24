@@ -301,6 +301,33 @@
       line-height: 1.8;
     }
 
+    .copy-list {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .copy-item {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .66);
+    }
+
+    .copy-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--brand);
+      font-size: 16px;
+    }
+
+    .copy-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
     @media (max-width: 920px) {
       .wrap {
         grid-template-columns: 1fr;
@@ -419,6 +446,20 @@ MuMu 沐慕肌膚管理提供臉部清潔保養服務，依照膚況安排清潔
             <div class="mini">
               <img src="03_kaohsiung_booking.jpg" alt="第三張輪播圖">
               <div>3. 高雄臉部保養體驗價</div>
+            </div>
+          </div>
+          <div class="copy-list" aria-label="輪播文案說明">
+            <div class="copy-item">
+              <strong>第 1 張｜痘痘粉刺照護需求？</strong>
+              <p>說明：$1999 體驗價｜從溫和清潔保養開始<br>CTA：私訊預約</p>
+            </div>
+            <div class="copy-item">
+              <strong>第 2 張｜清潔粉刺・整理毛孔</strong>
+              <p>說明：$1999 體驗價｜依照膚況安排保養流程<br>CTA：私訊預約</p>
+            </div>
+            <div class="copy-item">
+              <strong>第 3 張｜高雄臉部保養體驗價</strong>
+              <p>說明：$1999｜私訊了解適合課程<br>CTA：私訊預約</p>
             </div>
           </div>
         </div>
